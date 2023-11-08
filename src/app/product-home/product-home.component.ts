@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { ProductsService } from "../products.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-product-home',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-home.component.css']
 })
 export class ProductHomeComponent implements OnInit {
+  products: any = [];
 
-  constructor() { }
+  constructor(private productsService: ProductsService, private router: Router){}
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.productsService.getProducts().subscribe(data =>{
+      this.products = data;
+    })
   }
 
+  openDetailForm(row: any){
+    this.router.navigate(['/product', row.id]);
+  }
+
+  displayedColumns: string[] = ["id", "name", "stock", "price", "active", "date_added", "category"];
 }

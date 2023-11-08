@@ -2,19 +2,19 @@
   <mat-card-title>Detalle del contacto</mat-card-title>
   <mat-card-content class="card-content">
     <p>
-      <mat-icon>person</mat-icon> <strong>Nombre:</strong> Peter
+      <mat-icon>person</mat-icon> <strong>Nombre:</strong> {{contact.name}}
     </p>
     <p>
-      <mat-icon>person</mat-icon> <strong>Apellido:</strong> Griffin
+      <mat-icon>person</mat-icon> <strong>Apellido:</strong> {{contact.middlename}}
     </p>
     <p>
-      <mat-icon>person</mat-icon> <strong>Segundo apellido:</strong> Smith
+      <mat-icon>person</mat-icon> <strong>Segundo apellido:</strong> {{contact.lastname}}
     </p>
     <p>
-      <mat-icon>phone</mat-icon> <strong>Telefono:</strong> 654654654
+      <mat-icon>phone</mat-icon> <strong>Telefono:</strong> {{contact.phone}}
     </p>
     <p>
-      <mat-icon>email</mat-icon> <strong>Email:</strong> peterg@hotmail.com
+      <mat-icon>email</mat-icon> <strong>Email:</strong> {{contact.email}}
     </p>
   </mat-card-content>
 </mat-card>

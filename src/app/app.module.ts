@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 import { ProductHomeComponent } from './product-home/product-home.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { CategoryHomeComponent } from './category-home/category-home.component';
+import { CategoryDetailComponent } from './category-detail/category-detail.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     ContactHomeComponent,
     ContactDetailComponent,
     ProductHomeComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    CategoryHomeComponent,
+    CategoryDetailComponent
   ],
   imports: [
     BrowserModule,
