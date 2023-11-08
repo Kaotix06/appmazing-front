@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ContactsService } from "../contacts.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-contact-home",
@@ -9,7 +10,7 @@ import { ContactsService } from "../contacts.service";
 export class ContactHomeComponent implements OnInit {
   contacts: any = [];
 
-  constructor(private contactsService: ContactsService){}
+  constructor(private contactsService: ContactsService, private router: Router){}
 
   ngOnInit(): void {
     this.contactsService.getContacts().subscribe(data =>{
@@ -17,12 +18,9 @@ export class ContactHomeComponent implements OnInit {
     })
   }
 
-  displayedColumns: string[] = [
-    "id",
-    "name",
-    "middlename",
-    "lastname",
-    "phone",
-    "email"
-  ];
+  openDetailForm(row: any){
+    this.router.navigate(['/contact', row.id]);
+  }
+
+  displayedColumns: string[] = ["id", "name", "middlename", "lastname", "phone", "email"];
 }
