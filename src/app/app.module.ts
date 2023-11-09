@@ -9,8 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 import { ProductHomeComponent } from './product-home/product-home.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { CategoryHomeComponent } from './category-home/category-home.component';
-import { CategoryDetailComponent } from './category-detail/category-detail.component';
 
 @NgModule({
   declarations: [
@@ -18,9 +16,7 @@ import { CategoryDetailComponent } from './category-detail/category-detail.compo
     ContactHomeComponent,
     ContactDetailComponent,
     ProductHomeComponent,
-    ProductDetailComponent,
-    CategoryHomeComponent,
-    CategoryDetailComponent
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
