@@ -8,15 +8,15 @@
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Stock</mat-label>
-        <input matInput type="text" name="stock" [(ngModel)]="stock">
+        <input matInput type="number" name="stock" [(ngModel)]="stock">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Precio</mat-label>
-        <input matInput type="text" name="price" [(ngModel)]="price">
+        <input matInput type="number" name="price" [(ngModel)]="price">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Activo</mat-label>
-        <input matInput type="text" name="active" [(ngModel)]="active">
+        <input matInput type="boolean" name="active" [(ngModel)]="active">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Fecha añadido</mat-label>
@@ -24,7 +24,7 @@
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Categoria</mat-label>
-        <input matInput type="text" name="category" [(ngModel)]="category">
+        <input matInput type="text" name="category" [(ngModel)]="category.id">
       </mat-form-field>
 
       <div class="button">
