@@ -24,7 +24,11 @@
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Categoria</mat-label>
-        <input matInput type="text" name="category" [(ngModel)]="category.id">
+        <mat-select name="category" [(ngModel)]="category.id">
+    <mat-option *ngFor="let category of categories" [value]="category.id">
+      {{category.name}}
+    </mat-option>
+  </mat-select>
       </mat-form-field>
 
       <div class="button">

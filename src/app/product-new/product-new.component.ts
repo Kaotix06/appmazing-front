@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductsService } from '../products.service';
 import { Category } from '../Model/Category';
+import { CategoriesService } from '../categories.service';
 
 @Component({
   selector: 'app-product-new',
@@ -9,17 +10,20 @@ import { Category } from '../Model/Category';
   styleUrls: ['./product-new.component.css']
 })
 export class ProductNewComponent implements OnInit {
+  categories: any = [];
+  
   category: Category = new Category();
   name: string;
   stock: number;
   price: number;
-  active: boolean;
+  active: boolean = false;
   date_added: Date;
 
 
-  constructor(private router: Router, private productsService: ProductsService) { }
+  constructor(private router: Router, private productsService: ProductsService, private categoriesService: CategoriesService) { }
 
   ngOnInit() {
+    this.loadCategories();
   }
 
   newProduct(){
@@ -34,6 +38,12 @@ export class ProductNewComponent implements OnInit {
 
     this.productsService.newProduct(product);
     this.navigateToHome();
+  }
+
+  loadCategories(){
+    this.categoriesService.getCategories().subscribe((data: Category[]) => {
+      this.categories = data;
+    });
   }
 
   cancelInsert(){
