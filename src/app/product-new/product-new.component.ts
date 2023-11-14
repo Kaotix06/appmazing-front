@@ -42,7 +42,7 @@ export class ProductNewComponent implements OnInit {
   }
 
   loadCategories(){
-    this.categoriesService.getCategories().subscribe((data: Category[]) => {
+    this.categoriesService.getCategories().subscribe(data => {
       this.categories = data;
     });
   }

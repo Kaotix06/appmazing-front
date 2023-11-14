@@ -24,7 +24,7 @@ export class ProductEditComponent implements OnInit {
   }
 
   loadCategories(){
-    this.categoriesServices.getCategories().subscribe((data: Category[]) => {
+    this.categoriesServices.getCategories().subscribe(data => {
       this.categories = data;
     });
   }
