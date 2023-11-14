@@ -11,6 +11,7 @@ import { CategoriesService } from '../categories.service';
 })
 export class ProductNewComponent implements OnInit {
   categories: any = [];
+  stockStatus: string = 'En stock';
   
   category: Category = new Category();
   name: string;
@@ -52,5 +53,9 @@ export class ProductNewComponent implements OnInit {
 
   navigateToHome(){
     this.router.navigate(['/products']);
+  }
+
+  getStatusText(): string {
+    return this.stockStatus;
   }
 }

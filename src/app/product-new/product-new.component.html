@@ -15,7 +15,7 @@
         <input matInput type="number" name="price" [(ngModel)]="price">
       </mat-form-field>
         <mat-label>Activo</mat-label>
-        <mat-slide-toggle type="-boolean" name="active" [(ngModel)]="active" >Available</mat-slide-toggle>
+        <mat-slide-toggle type="-boolean" name="active" [(ngModel)]="active" > Agotado / En stock</mat-slide-toggle>
       <mat-form-field appearance="outline">
         <mat-label>Fecha añadido</mat-label>
         <input matInput type="date" name="date_added" [(ngModel)]="date_added">
@@ -23,10 +23,10 @@
       <mat-form-field appearance="outline">
         <mat-label>Categoria</mat-label>
         <mat-select name="category" [(ngModel)]="category.id">
-    <mat-option *ngFor="let category of categories" [value]="category.id">
-      {{category.name}}
-    </mat-option>
-  </mat-select>
+          <mat-option *ngFor="let category of categories" [value]="category.id">
+            {{category.name}}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
 
       <div class="button">

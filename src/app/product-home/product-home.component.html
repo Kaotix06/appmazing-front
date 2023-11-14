@@ -23,7 +23,9 @@
 
   <ng-container matColumnDef="active">
     <th mat-header-cell *matHeaderCellDef> Activo </th>
-    <td mat-cell *matCellDef="let product"> {{product.active}} </td>
+  <td mat-cell *matCellDef="let product">
+    {{ product.active ? 'En stock' : 'Agotado' }}
+  </td>
   </ng-container>
 
   <ng-container matColumnDef="date_added">
@@ -34,6 +36,15 @@
   <ng-container matColumnDef="category">
     <th mat-header-cell *matHeaderCellDef> Categoria </th>
     <td mat-cell *matCellDef="let product"> {{product.category.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Acciones </th>
+    <td mat-cell *matCellDef="let product">
+      <button mat-icon-button color ="primary" (click)="editProductDetail(product.id); $event.stopPropagation()">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

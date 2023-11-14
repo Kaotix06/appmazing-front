@@ -11,7 +11,7 @@
       <mat-icon>account_balance_wallet</mat-icon> <strong>Precio:</strong> {{product.price}}
     </p>
     <p>
-      <mat-icon>store</mat-icon> <strong>Activo:</strong> {{product.active}}
+      <mat-icon>store</mat-icon> <strong>Activo:</strong> {{ product.active ? 'En stock' : 'Agotado' }}
     </p>
     <p>
       <mat-icon>access_time</mat-icon> <strong>Fecha activo:</strong> {{product.date_added}}
