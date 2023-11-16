@@ -14,7 +14,7 @@
       <mat-icon>store</mat-icon> <strong>Activo:</strong> {{ product.active ? 'En stock' : 'Agotado' }}
     </p>
     <p>
-      <mat-icon>access_time</mat-icon> <strong>Fecha activo:</strong> {{product.date_added}}
+      <mat-icon>access_time</mat-icon> <strong>Fecha activo:</strong> {{ product.date_added | date: 'dd/MM/yyyy' }}
     </p>
     <p>
       <mat-icon>class</mat-icon> <strong>Categoria:</strong> {{product.category.name}}
