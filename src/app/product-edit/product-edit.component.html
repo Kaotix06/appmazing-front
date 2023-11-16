@@ -18,9 +18,7 @@
         <mat-slide-toggle type="-boolean" name="active" [(ngModel)]="product.active" > Agotado / En stock</mat-slide-toggle>
       <mat-form-field appearance="outline">
         <mat-label>Fecha añadido</mat-label>
-        <input matInput [matDatepicker]="picker" name="date_added" [(ngModel)]="product.date_added">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
+        <input matInput type="date" name="date_added" [(ngModel)]="product.date_added">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Categoria</mat-label>

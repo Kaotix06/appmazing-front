@@ -21,6 +21,8 @@ export class ProductEditComponent implements OnInit {
   ngOnInit() {
     this.productService.getProduct(this.route.snapshot.params['id']).subscribe(data =>{
       this.product = data;
+    let dateFormated = this.datePipe.transform(this.product.date_added, 'yyyy-MM-dd');
+      this.product.date_added = dateFormated;
     })
     this.loadCategories();
   }
@@ -32,7 +34,6 @@ export class ProductEditComponent implements OnInit {
   }
 
   updateProduct(){
-    this.product.date_added = this.datePipe.transform(this.product.date_added, 'dd/MM/yyyy');
     this.productService.updateProduct(this.product);
     this.navigateDetail();
   }

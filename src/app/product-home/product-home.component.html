@@ -30,7 +30,7 @@
 
   <ng-container matColumnDef="date_added">
     <th mat-header-cell *matHeaderCellDef> Fecha añadido </th>
-    <td mat-cell *matCellDef="let product"> {{ product.date_added | date: 'dd/MM/yyyy' }} </td>
+    <td mat-cell *matCellDef="let product">{{ product.date_added | date: 'dd-MM-yyyy'}}</td>
   </ng-container>
 
   <ng-container matColumnDef="category">
