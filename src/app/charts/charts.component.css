@@ -7,4 +7,20 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  
+}
+
+.chart{
+  color: black;
+  margin: 10px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 2em;
+}
+
+.chart:hover{
+  transform: scale(1.05);
+  cursor: pointer;
+  box-shadow: 0 0 10px white;
+  transition: 0.3s;
 }
