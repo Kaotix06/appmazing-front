@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-title>Charts-Contacts</mat-card-title>
+  <mat-card-content>
+    <div class="chart-row">
+      <div>
+        <p><strong>Initial middlename</strong></p>
+        <ngx-charts-bar-vertical [view]="[400, 300]" [results]="initialLetter" [xAxis]="true" [yAxis]="true"
+        [legend]="false" [showXAxisLabel]="true" [showYAxisLabel]="true" xAxisLabel="Initial of middlename"
+        yAxisLabel="Number of contacts">
+        </ngx-charts-bar-vertical>
+      </div>
+      <div>
+        <p><strong>Lenght of name</strong></p>
+      </div>
+    </div>
+    <div class="chart-row">
+      <div>
+        <p><strong>Extensions</strong></p>
+      </div>
+      <div>
+        <p><strong>Prefix</strong></p>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

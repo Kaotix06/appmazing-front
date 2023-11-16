@@ -17,6 +17,8 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ContactDeleteComponent } from './contact-delete/contact-delete.component';
 import { ProductDeleteComponent } from './product-delete/product-delete.component';
 import { CommonModule } from '@angular/common';
+import { ChartsComponent } from './charts/charts.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { CommonModule } from '@angular/common';
     ContactEditComponent,
     ProductEditComponent,
     ContactDeleteComponent,
-    ProductDeleteComponent
+    ProductDeleteComponent,
+    ChartsComponent
   ],
   entryComponents: [ContactDeleteComponent, ProductDeleteComponent],
   imports: [
@@ -53,7 +56,8 @@ import { CommonModule } from '@angular/common';
     MatInputModule,
     MatNativeDateModule,
     MatDialogModule,
-    CommonModule
+    CommonModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
