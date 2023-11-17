@@ -24,6 +24,9 @@
       </div>
       <div class="chart">
         <p><strong>Prefix</strong></p>
+        <ngx-charts-bar-horizontal [view]="[400,300]" [results]="phonePrefixData" [xAxis]="true" [yAxis]="true"
+        [legend]="false" [showXAxisLabel]="true" [showYAxisLabel]="true" xAxisLabel="Number of Contacts"
+        yAxisLabel="Phone Prefix"></ngx-charts-bar-horizontal>
       </div>
     </div>
   </mat-card-content>

@@ -10,6 +10,7 @@ export class ChartsComponent implements OnInit {
   initialLetter = [];
   contactsByFullName = [];
   emailExtensions = [];
+  phonePrefixData = [];
 
   constructor(private contactService: ContactsService) { }
 
@@ -18,6 +19,7 @@ export class ChartsComponent implements OnInit {
       this.initialLetter = this.calculateInitialLettersData(data);
       this.contactsByFullName = this.calculateContactsByFullNameData(data);
       this.emailExtensions = this.calculateEmailExtensionsData(data);
+      this.phonePrefixData = this.generatePhonePrefixData(data);
     })
   }
 
@@ -82,6 +84,26 @@ export class ChartsComponent implements OnInit {
       emailExtensions.push({name: key, value: value});
     });
     return emailExtensions;
+  }
+
+  generatePhonePrefixData(contacts: any[]): any{
+    let phonePrefixData = [];
+    let prefixCounts = {};
+    contacts.forEach(contact =>{
+      const phonePrefix = String(contact.phone).substring(0, 1);
+      if(prefixCounts[phonePrefix]){
+        prefixCounts[phonePrefix]++;
+      }else{
+        prefixCounts[phonePrefix] = 1;
+      }
+    });
+
+    for(let prefix in prefixCounts){
+      if(prefixCounts.hasOwnProperty(prefix)){
+        phonePrefixData.push({name: prefix, value: prefixCounts[prefix]});
+      }
+    }
+    return phonePrefixData;
   }
 
 }
