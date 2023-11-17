@@ -184,7 +184,6 @@ export class ChartsComponent implements OnInit {
   
     return totalStockByCategory;
   }
-  
 
 }
 
