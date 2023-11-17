@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactsService } from '../contacts.service';
+import { ProductsService } from '../products.service';
+import { CategoriesService } from '../categories.service';
 
 @Component({
   selector: 'app-charts',
@@ -11,8 +13,11 @@ export class ChartsComponent implements OnInit {
   contactsByFullName = [];
   emailExtensions = [];
   phonePrefixData = [];
+  productsByCategory = [];
+  averagePriceByCategory = [];
+  totalStockByCategory = [];
 
-  constructor(private contactService: ContactsService) { }
+  constructor(private contactService: ContactsService, private productService: ProductsService, private categoryService: CategoriesService) { }
 
   ngOnInit() {
     this.contactService.getContacts().subscribe(data =>{
@@ -20,6 +25,11 @@ export class ChartsComponent implements OnInit {
       this.contactsByFullName = this.calculateContactsByFullNameData(data);
       this.emailExtensions = this.calculateEmailExtensionsData(data);
       this.phonePrefixData = this.generatePhonePrefixData(data);
+    })
+    this.productService.getProducts().subscribe(data =>{
+      this.productsByCategory=this.groupProductsByCategory(data);
+      this.averagePriceByCategory = this.calculateAveragePriceByCategory(data);
+      this.totalStockByCategory = this.calculateTotalStockByCategory(data);
     })
   }
 
@@ -106,4 +116,75 @@ export class ChartsComponent implements OnInit {
     return phonePrefixData;
   }
 
+  groupProductsByCategory(products: any[]): any {
+    let productsByCategoryMap = new Map<string, number>();
+
+  products.forEach(product => {
+    const categoryName = product.category.name;
+
+    if (productsByCategoryMap.has(categoryName)) {
+      productsByCategoryMap.set(categoryName, productsByCategoryMap.get(categoryName) + 1);
+    } else {
+      productsByCategoryMap.set(categoryName, 1);
+    }
+  });
+
+  let productsByCategory = [];
+  productsByCategoryMap.forEach((value, key) => {
+    productsByCategory.push({ name: key, value: value });
+  });
+
+  return productsByCategory;
+  }
+
+  calculateAveragePriceByCategory(products: any[]): any {
+    let averagePriceByCategoryMap = new Map<string, { total: number, count: number }>();
+    
+    products.forEach(product => {
+      const categoryName = product.category.name;
+      const price = product.price;
+
+      if (averagePriceByCategoryMap.has(categoryName)) {
+        const currentCategoryData = averagePriceByCategoryMap.get(categoryName);
+        currentCategoryData.total += price;
+        currentCategoryData.count++;
+      } else {
+        averagePriceByCategoryMap.set(categoryName, { total: price, count: 1 });
+    }
+    });
+
+    let averagePriceByCategory = [];
+    averagePriceByCategoryMap.forEach((value, key) => {
+    const averagePrice = value.total / value.count;
+    averagePriceByCategory.push({ name: key, value: averagePrice });
+  });
+
+  return averagePriceByCategory;
+
+  }
+
+  calculateTotalStockByCategory(products: any[]): any[] {
+    let totalStockByCategoryMap = new Map<string, number>();
+  
+    products.forEach(product => {
+      const categoryName = product.category.name;
+      const stock = product.stock;
+  
+      if (totalStockByCategoryMap.has(categoryName)) {
+        totalStockByCategoryMap.set(categoryName, totalStockByCategoryMap.get(categoryName) + stock);
+      } else {
+        totalStockByCategoryMap.set(categoryName, stock);
+      }
+    });
+  
+    let totalStockByCategory = [];
+    totalStockByCategoryMap.forEach((value, key) => {
+      totalStockByCategory.push({ name: key, value: value });
+    });
+  
+    return totalStockByCategory;
+  }
+  
+
 }
+
