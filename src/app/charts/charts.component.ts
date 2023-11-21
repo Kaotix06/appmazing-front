@@ -16,6 +16,7 @@ export class ChartsComponent implements OnInit {
   productsByCategory = [];
   averagePriceByCategory = [];
   totalStockByCategory = [];
+  productsByPriceRangeData = [];
 
   constructor(private contactService: ContactsService, private productService: ProductsService, private categoryService: CategoriesService) { }
 
@@ -30,6 +31,7 @@ export class ChartsComponent implements OnInit {
       this.productsByCategory=this.groupProductsByCategory(data);
       this.averagePriceByCategory = this.calculateAveragePriceByCategory(data);
       this.totalStockByCategory = this.calculateTotalStockByCategory(data);
+      this.productsByPriceRangeData = this.calculateProductsByPriceRange(data);
     })
   }
 
@@ -183,6 +185,35 @@ export class ChartsComponent implements OnInit {
     });
   
     return totalStockByCategory;
+  }
+
+  calculateProductsByPriceRange(products: any[]): any[] {
+    const sortedPriceRanges = [0, 3, 6, 9, 12, 15];
+    const productsByPriceRange = [{
+      name: 'Products',
+      series: []
+    }];
+  
+    products.forEach(product => {
+      const price = product.price;
+      let rangeLabel = '';
+  
+      for (let i = 0; i < sortedPriceRanges.length; i++) {
+        if (price <= sortedPriceRanges[i]) {
+          rangeLabel = (sortedPriceRanges[i] || 0).toString();
+          break;
+        }
+      }
+  
+      let existingRange = productsByPriceRange[0].series.find(item => item.name === rangeLabel);
+      if (existingRange) {
+        existingRange.value++;
+      } else {
+        productsByPriceRange[0].series.push({ name: rangeLabel, value: 1 });
+      }
+    });
+  
+    return productsByPriceRange;
   }
 
 }

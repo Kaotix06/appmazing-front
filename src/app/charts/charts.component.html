@@ -55,6 +55,14 @@
         yAxisLabel="Total stock">
         </ngx-charts-bar-vertical>
       </div>
+      <div class="chart">
+        <p><strong>Products by Price Range</strong></p>
+        <ngx-charts-line-chart
+          [view]="[400,300]" [results]="productsByPriceRangeData" [xAxis]="true" [yAxis]="true"
+          [legend]="false" [showXAxisLabel]="true" [showYAxisLabel]="true" xAxisLabel="Rango de precios"
+          yAxisLabel="Numero de Productos"
+        ></ngx-charts-line-chart>
+      </div>
     </div>
   </mat-card-content>
 </mat-card>
