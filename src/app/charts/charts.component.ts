@@ -196,14 +196,7 @@ export class ChartsComponent implements OnInit {
   
     products.forEach(product => {
       const price = product.price;
-      let rangeLabel = '';
-  
-      for (let i = 0; i < sortedPriceRanges.length; i++) {
-        if (price <= sortedPriceRanges[i]) {
-          rangeLabel = (sortedPriceRanges[i] || 0).toString();
-          break;
-        }
-      }
+      const rangeLabel = this.getPriceRangeLabel(price, sortedPriceRanges);
   
       let existingRange = productsByPriceRange[0].series.find(item => item.name === rangeLabel);
       if (existingRange) {
@@ -213,7 +206,18 @@ export class ChartsComponent implements OnInit {
       }
     });
   
+    productsByPriceRange[0].series.sort((a, b) => Number(a.name) - Number(b.name));
+  
     return productsByPriceRange;
+  }
+  
+  getPriceRangeLabel(price: number, ranges: number[]): string {
+    for (let i = 0; i < ranges.length; i++) {
+      if (price <= ranges[i]) {
+        return (ranges[i] || 0).toString();
+      }
+    }
+    return '';
   }
 
 }
