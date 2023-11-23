@@ -19,6 +19,11 @@ import { ProductDeleteComponent } from './product-delete/product-delete.componen
 import { CommonModule } from '@angular/common';
 import { ChartsComponent } from './charts/charts.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { CategoryHomeComponent } from './category-home/category-home.component';
+import { CategoryNewComponent } from './category-new/category-new.component';
+import { CategoryEditComponent } from './category-edit/category-edit.component';
+import { CategoryDetailComponent } from './category-detail/category-detail.component';
+import { CategoryDeleteComponent } from './category-delete/category-delete.component';
 
 @NgModule({
   declarations: [
@@ -33,9 +38,14 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     ProductEditComponent,
     ContactDeleteComponent,
     ProductDeleteComponent,
-    ChartsComponent
+    ChartsComponent,
+    CategoryHomeComponent,
+    CategoryNewComponent,
+    CategoryEditComponent,
+    CategoryDetailComponent,
+    CategoryDeleteComponent
   ],
-  entryComponents: [ContactDeleteComponent, ProductDeleteComponent],
+  entryComponents: [ContactDeleteComponent, ProductDeleteComponent, CategoryDeleteComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

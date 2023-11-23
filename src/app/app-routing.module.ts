@@ -9,6 +9,10 @@ import { ProductNewComponent } from './product-new/product-new.component';
 import { ContactEditComponent } from './contact-edit/contact-edit.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ChartsComponent } from './charts/charts.component';
+import { CategoryHomeComponent } from './category-home/category-home.component';
+import { CategoryNewComponent } from './category-new/category-new.component';
+import { CategoryEditComponent } from './category-edit/category-edit.component';
+import { CategoryDetailComponent } from './category-detail/category-detail.component';
 
 
 const routes: Routes = [
@@ -20,7 +24,11 @@ const routes: Routes = [
   {path: 'products', component: ProductHomeComponent},
   {path: 'product/new', component: ProductNewComponent},
   {path: 'product/:id', component: ProductDetailComponent},
-  {path: 'product/edit/:id', component: ProductEditComponent}
+  {path: 'product/edit/:id', component: ProductEditComponent},
+  {path: 'categories', component: CategoryHomeComponent},
+  {path: 'category/new', component: CategoryNewComponent},
+  {path: 'category/:id', component: CategoryDetailComponent},
+  {path: 'category/edit/:id', component: CategoryEditComponent}
 ];
 
 @NgModule({

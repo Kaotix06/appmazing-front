@@ -1,0 +1,15 @@
+<mat-card class="card">
+  <mat-card-title>Detalle de la categoria</mat-card-title>
+  <mat-card-content class="card-content">
+    <p>
+      <mat-icon>class</mat-icon> <strong>Nombre:</strong> {{category.name}}
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-raised-button type="button" color="primary" (click)="editCategory()">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-raised-button type="button" color="warn" (click)="closeCategory()">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
