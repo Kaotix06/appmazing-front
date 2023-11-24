@@ -32,6 +32,6 @@ export class CategoryHomeComponent implements OnInit {
     this.dialog.open(CategoryDeleteComponent, {data: {categoryId: categoryId}});
   }
 
-  displayedColumns: string[] = ["id", "name"];
+  displayedColumns: string[] = ["id", "name", "actions"];
 
 }

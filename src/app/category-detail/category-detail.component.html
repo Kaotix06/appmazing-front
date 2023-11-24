@@ -8,8 +8,11 @@
     <button mat-raised-button type="button" color="primary" (click)="editCategory()">
       <mat-icon>edit</mat-icon>
     </button>
-    <button mat-raised-button type="button" color="warn" (click)="closeCategory()">
+    <button mat-raised-button type="button" color="primary" (click)="closeCategory()">
       <mat-icon>cancel</mat-icon>
+    </button>
+    <button mat-raised-button type="button" color ="warn" (click)="openDeleteDialog(category.id); $event.stopPropagation()">
+      <mat-icon>delete</mat-icon>
     </button>
   </mat-card-actions>
 </mat-card>

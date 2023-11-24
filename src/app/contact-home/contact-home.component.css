@@ -6,3 +6,12 @@ table {
 #new-contact{
   margin: 20px 0px 0px 40px;
 }
+
+.button{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button button{
+  margin-left: 5px;
+}

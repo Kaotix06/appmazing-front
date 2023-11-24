@@ -27,7 +27,7 @@
     <button mat-raised-button type="button" color="primary" (click)="closeProduct()">
       <mat-icon>cancel</mat-icon>
     </button>
-    <button mat-icon-button color ="warn" (click)="openDeleteDialog(product.id); $event.stopPropagation()">
+    <button mat-raised-button type="button" color ="warn" (click)="openDeleteDialog(product.id); $event.stopPropagation()">
       <mat-icon>delete</mat-icon>
     </button>
   </mat-card-actions>
